@@ -1,0 +1,46 @@
+body{
+    color: gray;
+    font: 1rem/1.4 Arial, Helvetica, sans-serif;
+    margin: 30px;
+}
+button{
+    border: solid 1px gray;
+    background: lightgray;
+    }
+*{
+    box-sizing: border-box;
+}
+h1{
+    width: 400px;
+    background: orange;
+    font-size: 2rem;
+    font-weight: 700;
+}
+h1,h2,h3,h4{
+    color: black;
+    text-wrap: balance;
+}
+nav{
+    display: flex ;
+    background-color: black;
+    box-sizing: border-box;
+}
+img{
+    box-shadow:0 0 15px #00000082;
+    height: 50vh;
+}
+nav a{
+    text-align: center;
+    flex-grow: 1;
+    text-decoration: none;
+    color: white;
+    padding: 10px ;
+}
+nav a:hover{
+    text-decoration: underline;
+    background: #ffffff62;
+}
+p{
+    text-align: start;
+    text-wrap: pretty;
+}

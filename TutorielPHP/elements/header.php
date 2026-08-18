@@ -1,5 +1,5 @@
 <?php
-require_once 'functions.php';
+require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'functions.php';
 ?> 
 <!doctype html>
 <html lang="en">
@@ -12,7 +12,7 @@ require_once 'functions.php';
 
     <title>
         <?php if (isset($title)) : ?>
-    <?=$title; ?>
+    <?= $title ?>
 <?php else : ?>
     Mon site
 <?php endif; ?>

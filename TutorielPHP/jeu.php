@@ -42,7 +42,7 @@ if (isset($_GET['cornet'])) {
         }
     }
 
-require 'header.php';
+require __DIR__ . '/elements/header.php';
 ?>
 <h1>Composer votre glace</h1>
 <div class="row">
@@ -102,4 +102,4 @@ require 'header.php';
 <pre>
     <?php var_dump($_POST)?>
 </pre>
-<?php require 'footer.php' ?>
+<?php require __DIR__ . '/elements/footer.php'; ?>

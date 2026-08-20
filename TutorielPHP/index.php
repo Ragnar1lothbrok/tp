@@ -1,4 +1,9 @@
 <?php
+session_start();
+$_SESSION['user'] = [
+  'username' => 'john',
+  'password' => '0000'
+];
 $title = "page d'accueil";
 require __DIR__ . '/elements/header.php';
 ?>

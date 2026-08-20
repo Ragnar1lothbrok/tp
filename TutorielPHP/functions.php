@@ -2,7 +2,7 @@
     function nav_item(string $lien, string $titre, string $linkClass=''): string
 {
     $classe = 'nav-item';
-    if ($_SERVER['SCRIPT_NAME'] === $lien) {
+    if (basename($_SERVER['SCRIPT_NAME']) === basename($lien)) {
         $classe .= ' active';
     }
 
@@ -15,9 +15,9 @@ HTML;
 function nav_menu(string $linkClass = ''): string
 {
     return
-    nav_item('/index.php', 'Accueil', $linkClass) .
-    nav_item('/menu.php', 'Menu', $linkClass) .
-    nav_item('/contact.php', 'Contact', $linkClass); 
+    nav_item('index.php', 'Accueil', $linkClass) .
+    nav_item('menu.php', 'Menu', $linkClass) .
+    nav_item('contact.php', 'Contact', $linkClass); 
 
 }
 
@@ -50,7 +50,7 @@ function select (string $name, $value, array $options): string{
         $attributes = $k == $value ? 'selected' : '';
         $html_options[] = "<option value='$k' $attributes>$option</option>";
     }
-    return "<select class='from-control' name='$name'>" . implode($html_options) . '</select>';
+    return "<select class='form-control' name='$name'>" . implode('', $html_options) . '</select>';
 }
 
 function dump ($variable){

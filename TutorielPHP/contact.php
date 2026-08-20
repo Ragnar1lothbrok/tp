@@ -1,7 +1,8 @@
 <?php
+session_start();
 $title = "Nous contacter" ;
-require_once 'config.php';
-require_once 'functions.php';
+require_once __DIR__ . '/data/config.php';
+require_once __DIR__ . '/functions.php';
 date_default_timezone_set('Africa/Tunis');
 $heure =(int)($_GET['heure'] ?? date('G'));
 $jour =(int)($_GET['jour'] ?? date('N') - 1);
@@ -28,11 +29,11 @@ require __DIR__ . '/elements/header.php';
         </div>
         <?php endif ?>
         <form action="" method="GET">
-            <div class="from-group">
+            <div class="form-group">
                 <?= select('jour', $jour, JOURS) ?>
             </div>
-            <div class="from-group">
-                <input class="from-control" type="number" name ="heure" value="<?= $heure?>">
+            <div class="form-group">
+                <input class="form-control" type="number" name ="heure" value="<?= $heure?>">
             </div>
             <button class="btn btn-primary" type="submit">Voir si le magasin est ouvert</button>
         </form>

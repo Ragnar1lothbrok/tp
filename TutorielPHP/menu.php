@@ -1,11 +1,12 @@
 <?php
-require_once 'functions.php';
+require_once __DIR__ . '/functions.php';
 $title = "Notre menu";
-$lignes = file(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'menu.csv');
+$fichier = __DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'menu.csv';
+$lignes = file_exists($fichier) ? file($fichier) : [];
 foreach ($lignes as $k => $ligne){
-    $lignes[$k] = str_getcsv(trim($ligne, "\t\n\r\x0B,"));
+    $lignes[$k] = str_getcsv(trim($ligne, "\t\n\r\x0B"), ',', '"', '\\');
 }
-require 'elements/header.php';
+require __DIR__ . '/elements/header.php';
 ?>
 <h1>Menu</h1>
 <?php foreach($lignes as $ligne):?>
@@ -27,4 +28,4 @@ require 'elements/header.php';
         <?php endforeach; ?>
 
 
-<?php require 'elements/footer.php'; ?>
+<?php require __DIR__ . '/elements/footer.php'; ?>

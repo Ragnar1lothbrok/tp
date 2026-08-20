@@ -1,5 +1,5 @@
 <?php
-require_once 'functions.php';
+require_once __DIR__ . '/functions.php';
 $parfums = [
     'Fraise' => 4,
     'Chocolat' => 5,
@@ -18,6 +18,11 @@ $supplements =[
 $title = "Composer votre glace";
 $ingredients = [];
 $total = 0;
+$formData = [
+    'parfum' => $_GET['parfum'] ?? [],
+    'supplement' => $_GET['supplement'] ?? [],
+    'cornet' => $_GET['cornet'] ?? null,
+];
 if (isset($_GET['parfum'])) {
     foreach($_GET['parfum'] as $parfum){
         if(isset($parfums[$parfum])){
@@ -62,12 +67,12 @@ require __DIR__ . '/elements/header.php';
         </div>
     </div>
     <div class="col-md-8">
-        <form action="/jeu.php" method="GET">
+        <form action="jeu.php" method="GET">
     <h2>Choisissez votre parfums</h2>
     <?php foreach($parfums as $parfum => $prix): ?>
         <div class="checkbox">
         <label>
-            <?= checkbox('parfum', $parfum, $_GET) ?>
+            <?= checkbox('parfum', $parfum, $formData) ?>
             <?= $parfum ?> - <?= $prix ?> $
             </label>
         </div>
@@ -76,7 +81,7 @@ require __DIR__ . '/elements/header.php';
     <?php foreach($cornets as $cornet => $prix): ?>
         <div class="checkbox">
         <label>
-            <?= radio('cornet', $cornet, $_GET) ?>
+            <?= radio('cornet', $cornet, $formData) ?>
             <?= $cornet ?> - <?= $prix ?> $
             </label>
         </div>
@@ -85,7 +90,7 @@ require __DIR__ . '/elements/header.php';
     <?php foreach($supplements as $supplement => $prix): ?>
         <div class="checkbox">
         <label>
-            <?= checkbox('supplement', $supplement, $_GET) ?>
+            <?= checkbox('supplement', $supplement, $formData) ?>
             <?= $supplement ?> - <?= $prix ?> $
             </label>
         </div>

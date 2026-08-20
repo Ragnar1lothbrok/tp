@@ -8,7 +8,7 @@ $today = null;
 $forecast = null;
 
 try {
-    $weather = new OpenWeather('fdb93d06e0e2512635156e672544c3ee');
+    $weather = new OpenWeather('.');
     $today = $weather->getToday('Tunis');
     $forecast = $weather->getForecast('Tunis');
 } catch (Exception | Error $e) {

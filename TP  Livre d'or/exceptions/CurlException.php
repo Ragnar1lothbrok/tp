@@ -1,10 +1,10 @@
 <?php
 
-class CurlException extends Exception {
+class CurlException extends Exception
+{
 
-    public function __construct($curl)
+    public function __construct(string $message)
     {
-        $this->message = curl_error($curl);
-        curl_close($curl);
+        parent::__construct($message);
     }
 }

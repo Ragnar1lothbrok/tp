@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'moham/tableau-dynamique',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '41d716eedd2fdc32e8c5db8beb60a02d9b32f063',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        'moham/tableau-dynamique' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '41d716eedd2fdc32e8c5db8beb60a02d9b32f063',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'symfony/polyfill-mbstring' => array(
+            'pretty_version' => 'v1.38.2',
+            'version' => '1.38.2.0',
+            'reference' => 'd3d318bad5e7a1bfbd026009c8bfb8d8f99ae6b6',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/polyfill-mbstring',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'symfony/var-dumper' => array(
+            'pretty_version' => 'v8.1.2',
+            'version' => '8.1.2.0',
+            'reference' => '865103cf742a039f34645b971fc3ace308d6c167',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/var-dumper',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);

@@ -1,5 +1,12 @@
 <?php
-class Message {
+
+namespace App\Guestbook;
+
+use \DateTime;
+use \DateTimeZone;
+
+class Message
+{
 
     const LIMIT_USERNAME = 3;
     const LIMIT_MESSAGE = 10;
@@ -8,11 +15,11 @@ class Message {
     private $message;
     private $date;
 
-    public function __construct(string $username, string $message, ?DateTime $date = null)
+    public function __construct(string $username, string $message, ?\DateTime $date = null)
     {
         $this->username = $username;
         $this->message = $message;
-        $this->date = $date ?? new DateTime();
+        $this->date = $date ?? new \DateTime();
     }
 
     public function isValid(): bool
@@ -35,7 +42,7 @@ class Message {
     public function toHTML(): string
     {
         $username = htmlentities($this->username);
-        $this->date->setTimezone(new DateTimeZone('Africa/Tunis'));
+        $this->date->setTimezone(new \DateTimeZone('Africa/Tunis'));
         $date = $this->date->format('d/m/Y à H:i');
         $message = nl2br(htmlentities($this->message));
 
@@ -54,6 +61,6 @@ class Message {
     public static function fromJSON(string $json): Message
     {
         $data = json_decode($json, true);
-        return new self($data['username'], $data['message'], new DateTime("@" . $data['date']));
+        return new self($data['username'], $data['message'], new \DateTime("@" . $data['date']));
     }
 }

@@ -1,0 +1,20 @@
+{
+  "name": "moham/size",
+  "autoload": {
+    "psr-4": {
+      "App\\": "class/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Ragnar1lothbrok",
+      "email": "mohamedkhsib24@gmail.com"
+    }
+  ],
+  "require": {
+    "erusev/parsedown": "^1.8"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^8.1"
+  }
+}

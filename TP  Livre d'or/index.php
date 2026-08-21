@@ -1,6 +1,12 @@
 <?php
-require_once 'class/Message.php';
-require_once 'class/GuestBook.php';
+require __DIR__ . '/vendor/autoload.php';
+
+use App\Guestbook\{
+    GuestBook,
+    Message
+};
+
+
 
 $errors = null;
 $success = false;
@@ -21,7 +27,7 @@ if (isset($_POST['username'], $_POST['message'])) {
 $messages = $guestbook->getMessages();
 
 $title = "Livre d'or";
-require 'elements/header.php';
+require __DIR__ . '/elements/header.php';
 ?>
 
 <div class="container">
@@ -63,4 +69,4 @@ require 'elements/header.php';
     <?php endif; ?>
 </div>
 
-<?php require 'elements/footer.php'; ?>
+<?php require __DIR__ . '/elements/footer.php'; ?>

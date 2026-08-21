@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'Message.php';
+namespace App\Guestbook;
+
 
 class GuestBook {
 

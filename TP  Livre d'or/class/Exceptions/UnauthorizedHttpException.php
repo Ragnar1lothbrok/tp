@@ -1,5 +1,4 @@
 <?php
-require_once __DIR__ . '/HttpException.php';
-
+namespace App\Exceptions;
 class UnauthorizedHttpException extends HttpException {
 }

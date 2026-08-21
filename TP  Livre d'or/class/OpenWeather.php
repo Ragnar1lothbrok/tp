@@ -1,7 +1,9 @@
 <?php
-require_once __DIR__ . '/../exceptions/CurlException.php';
-require_once __DIR__ . '/../exceptions/HttpException.php';
-require_once __DIR__ . '/../exceptions/UnauthorizedHttpException.php';
+namespace App;
+use App\Exceptions\CurlException;
+use App\Exceptions\HttpException;
+use App\Exceptions\UnauthorizedHttpException;
+
 
 
 
@@ -38,7 +40,7 @@ class OpenWeather
         return [
             'temp' => $data['main']['temp'],
             'description' => $data['weather'][0]['description'],
-            'date' => new DateTime()
+            'date' => new \DateTime()
         ];
     }
 
@@ -54,7 +56,7 @@ class OpenWeather
         $results = [];
         $days = [];
         foreach ($data['list'] as $item) {
-            $date = (new DateTime('@' . $item['dt']))->format('Y-m-d');
+            $date = (new \DateTime('@' . $item['dt']))->format('Y-m-d');
             if (isset($days[$date])) {
                 continue;
             }
@@ -63,7 +65,7 @@ class OpenWeather
             $results[] = [
                 'temp' => $item['main']['temp'],
                 'description' => $item['weather'][0]['description'],
-                'date' => new DateTime('@' . $item['dt'])
+                'date' => new \DateTime('@' . $item['dt'])
             ];
         }
         return $results;

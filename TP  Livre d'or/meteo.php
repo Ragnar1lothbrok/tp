@@ -1,14 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
-require_once 'class/OpenWeather.php';
+use App\OpenWeather;
+
+require_once __DIR__ . '/vendor/autoload.php';
 
 $error = null;
 $today = null;
 $forecast = null;
 
 try {
-    $weather = new OpenWeather('fdb93d06e0e2512635156e672544c3ee');
+    $weather = new App\OpenWeather('fdb93d06e0e2512635156e672544c3ee');
     $today = $weather->getToday('Tunis');
     $forecast = $weather->getForecast('Tunis');
 } catch (Exception | Error $e) {
@@ -16,7 +19,7 @@ try {
     $error = $e->getMessage();
 }
 
-require 'elements/header.php';
+require __DIR__ . '/elements/header.php';
 ?>
 
 <div class="container my-5">
@@ -30,8 +33,8 @@ require 'elements/header.php';
                 <div class="card-body">
                     <h2 class="card-title">Météo aujourd'hui</h2>
                     <p class="card-text fs-4">
-                        <strong>En ce moment :</strong> 
-                        <?= htmlspecialchars($today['description']) ?>, 
+                        <strong>En ce moment :</strong>
+                        <?= htmlspecialchars($today['description']) ?>,
                         <?= htmlspecialchars((string)$today['temp']) ?> °C
                     </p>
                     <p class="text-muted"><small>Mise à jour : <?= $today['date']->format('d/m/Y H:i') ?></small></p>
@@ -45,7 +48,7 @@ require 'elements/header.php';
                 <?php foreach ($forecast as $day): ?>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <span>
-                            <strong><?= $day['date']->format('d/m/Y') ?> :</strong> 
+                            <strong><?= $day['date']->format('d/m/Y') ?> :</strong>
                             <?= htmlspecialchars($day['description']) ?>
                         </span>
                         <span class="badge bg-primary rounded-pill"><?= htmlspecialchars((string)$day['temp']) ?> °C</span>
@@ -56,4 +59,4 @@ require 'elements/header.php';
     <?php endif; ?>
 </div>
 
-<?php require 'elements/footer.php'; ?>
+<?php require __DIR__ . '/elements/footer.php'; ?>
